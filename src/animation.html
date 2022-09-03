@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 将展示的css自动写入 -->
+    <style class="style"></style>
+    <!-- 不想展示的css -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        .code {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50vh;
+            overflow: auto;
+        }
+
+        /* 隐藏滚动条 */
+        .code::-webkit-scrollbar {
+            display: none;
+        }
+
+        .html {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50vh;
+            background: #ffe600;
+        }
+
+        #buttons {
+            position: fixed;
+            top: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        #buttons>* {
+            margin-bottom: 10px;
+            padding: 4px 8px;
+        }
+
+        /* 屏幕宽小于500px时 */
+        @media(max-width:500px) {
+            .skin {
+                transform: scale(0.8);
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 展示的css -->
+    <div class="code" style="white-space:pre"></div>
+    <div id="buttons">
+        <button id="btnPause">暂停</button>
+        <button id="btnPlay">播放</button>
+        <button id="btnSlow">慢速</button>
+        <button id="btnNormal">中速</button>
+        <button id="btnFast">快速</button>
+    </div>
+
+    <!-- 下半区域的结构骨架 -->
+    <div class="html">
+        <div class="skin">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="nose"> </div>
+            <div class="mouth">
+                <div class="up left"></div>
+                <div class="up right"></div>
+                <div class="down">
+                    <div class="yuan"></div>
+                </div>
+            </div>
+            <div class="face left">
+                <img hidden src="https://s2.loli.net/2022/08/31/mZElVsPWuzcryJ4.gif" alt="">
+            </div>
+            <div class="face right">
+                <img hidden src="https://s2.loli.net/2022/08/31/mZElVsPWuzcryJ4.gif" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script src="animation.js"></script>
+</body>
+
+</html>

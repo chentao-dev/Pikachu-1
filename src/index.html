@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffe600;
+        }
+
+        .skin {
+            position: relative;
+            height: 800px;
+        }
+
+        .skin>* {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .nose {
+            /* 因为动画里的旋转, 会影响它, 所以要取消 */
+            transform: translate(0);
+            margin-left: -12px;
+            width: 0px;
+            height: 0px;
+            border: 12px solid blue;
+            border-color: black transparent transparent;
+            border-radius: 12px;
+        }
+
+        .eye {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            background: #2e2e2e;
+        }
+
+        .eye::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            background: #fff;
+            margin-left: 8px;
+        }
+
+        .eye.left {
+            margin-left: -115px;
+        }
+
+        .eye.right {
+            margin-left: 115px;
+        }
+
+        .mouth {
+            margin-top: 120px;
+            width: 180px;
+            height: 200px;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .mouth .up {
+            position: absolute;
+            top: -10px;
+            left: 40px;
+            width: 100px;
+            height: 50px;
+            border: 3px solid black;
+            border-radius: 50%;
+            border-color: transparent transparent black black;
+            background: #ffe600;
+        }
+
+        .mouth .up.left {
+            margin-left: -41px;
+            transform: rotateZ(-15deg);
+        }
+
+        .mouth .up.right {
+            margin-left: 41px;
+            transform: rotateY(180deg)rotateZ(-15deg);
+        }
+
+        .mouth .down {
+            position: absolute;
+            top: 4px;
+            left: 0;
+            width: 180px;
+            height: 200px;
+            border-radius: 60px;
+            overflow: hidden;
+        }
+
+        .mouth .yuan {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            width: 160px;
+            height: 650px;
+            border: 3px solid #000;
+            border-radius: 50%;
+            background: #9b000a;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .mouth .yuan::before {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #ff485f;
+        }
+
+        .face {
+            margin-top: 135px;
+            width: 84px;
+            height: 84px;
+            border: 3px solid black;
+            border-radius: 50%;
+            background: #ff0000;
+        }
+
+        .face.left {
+            margin-left: -165px;
+        }
+
+        .face.right {
+            margin-left: 165px;
+        }
+
+        .face img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+
+        .face.left img {
+            transform: rotateY(180deg);
+            transform-origin: left top;
+        }
+
+        @keyframes shake {
+            0% {}
+
+            33% {
+                transform: rotate(10deg);
+            }
+
+            66% {
+                transform: rotate(-10deg);
+            }
+
+            100% {}
+        }
+
+        .nose:hover {
+            animation: shake 0.2s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="skin">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="nose"> </div>
+        <div class="mouth">
+            <div class="up left"></div>
+            <div class="up right"></div>
+            <div class="down">
+                <div class="yuan"></div>
+            </div>
+        </div>
+        <div class="face left">
+            <img src="https://s2.loli.net/2022/08/31/mZElVsPWuzcryJ4.gif" alt="">
+        </div>
+        <div class="face right">
+            <img src="https://s2.loli.net/2022/08/31/mZElVsPWuzcryJ4.gif" alt="">
+        </div>
+    </div>
+
+    <script src=""></script>
+</body>
+
+</html>
