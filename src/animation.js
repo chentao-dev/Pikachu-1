@@ -166,7 +166,11 @@ let imgs = document.querySelectorAll("img");
 let id;
 let n = 1;
 let time = 30;
-function play() {
+function play(t) {
+  clearInterval(id);
+  if (typeof t === "number") {
+    time = t;
+  }
   id = setInterval(() => {
     if (n >= str.length) {
       imgs.forEach((v) => {
@@ -184,25 +188,8 @@ function play() {
 play();
 
 // 按钮
-btnPause.onclick = () => {
-  clearInterval(id);
-};
-btnPlay.onclick = () => {
-  clearInterval(id);
-  play();
-};
-btnSlow.onclick = () => {
-  clearInterval(id);
-  time = 100;
-  play();
-};
-btnNormal.onclick = () => {
-  clearInterval(id);
-  time = 30;
-  play();
-};
-btnFast.onclick = () => {
-  clearInterval(id);
-  time = 0;
-  play();
-};
+btnPause.onclick = () => clearInterval(id);
+btnPlay.onclick = () => play();
+btnSlow.onclick = () => play(100);
+btnNormal.onclick = () => play(30);
+btnFast.onclick = () => play(0);
